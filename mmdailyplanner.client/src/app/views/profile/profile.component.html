@@ -1,0 +1,12 @@
+<div class="profile-container" *ngIf="user">
+  <mat-card class="profile-card">
+    <mat-card-content>
+      <mat-card-title>{{ user.username }}</mat-card-title>
+      <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>
+      <img [src]="user.profileImage ? user.profileImage : 'default-profile-image.png'" alt="Profile Image" class="profile-avatar">
+      <p><strong>First Name:</strong> {{ user.firstName ? user.firstName : 'N/A' }}</p>
+      <p><strong>Last Name:</strong> {{ user.lastName ? user.lastName : 'N/A' }}</p>
+      <p><strong>Phone Number:</strong> {{ user.phoneNumber ? user.phoneNumber : 'N/A' }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

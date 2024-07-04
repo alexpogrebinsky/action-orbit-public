@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/0.5.271090-alpha">
+  <PropertyGroup>
+    <StartupCommand>npm start</StartupCommand>
+    <JavaScriptTestFramework>Jasmine</JavaScriptTestFramework>
+    <!-- Allows the build (or compile) script located on package.json to run on Build -->
+    <ShouldRunBuildScript>false</ShouldRunBuildScript>
+    <!-- Folder where production build objects will be placed -->
+    <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\mmdailyplanner.client\</BuildOutputFolder>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="src\app\guards\" />
+    <Folder Include="src\app\models\" />
+    <Folder Include="src\app\dtos\" />
+    <Folder Include="src\app\shared\" />
+    <Folder Include="src\app\services\task-service\" />
+    <Folder Include="src\app\views\pages\" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,14 @@
+<mat-spinner *ngIf="loading"></mat-spinner>
+      <div *ngIf="!loading && user">
+        <div class="avatar-container">
+          <img [src]="user.profileImage" alt="Profile Image" class="profile-avatar">
+        </div>
+          <div><a mat-button routerLink="/tasks" class="nav-link"><mat-icon>list</mat-icon> View Task List</a></div>
+          <div><a mat-button routerLink="/add-task" class="nav-link"><mat-icon>add</mat-icon> Add New Task</a></div>
+          <div><a mat-button routerLink="/profile/{{user.username}}" class="nav-link"><mat-icon>person</mat-icon> View Profile</a></div>
+          <div><a mat-button routerLink="/completed-tasks" class="nav-link"><mat-icon>person</mat-icon>Completed Tasks</a></div>
+          <div><a mat-button routerLink="/user-analytics" class="nav-link"><mat-icon>dataset</mat-icon>User Insights</a></div>
+          <hr />
+          <div><a mat-button (click)="logout()"><mat-icon>logout</mat-icon>Logout</a></div>
+          <div><a mat-button routerLink="/about" class="nav-link"><mat-icon>info</mat-icon>About Project</a></div>
+      </div>

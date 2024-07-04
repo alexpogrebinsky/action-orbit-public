@@ -1,0 +1,20 @@
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+mat-card {
+  width: 100%;
+  padding: 20px;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}
+
+mat-form-field {
+  width: 100%;
+}

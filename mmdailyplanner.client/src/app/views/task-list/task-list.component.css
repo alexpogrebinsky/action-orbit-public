@@ -1,0 +1,30 @@
+/* task-list.component.css */
+
+.task-list-card {
+  margin: 20px;
+}
+
+.search-container {
+  display: flex;
+  justify-content:left;
+  margin-bottom: 20px;
+}
+
+.mat-form-field {
+  width: 300px; /* Adjust the width as needed */
+}
+
+table {
+  width: 100%;
+}
+.custom-height {
+  height: 20px; /* Adjust this value as needed */
+}
+
+.custom-input-height {
+  height: 20px; /* Adjust this value as needed */
+  padding: 0; /* Optionally adjust padding for better alignment */
+}
+input.mat-input-element {
+  height: 20px
+}

@@ -1,0 +1,78 @@
+<mat-card>
+  <mat-card-title>Task Detail</mat-card-title>
+  <mat-card-content>
+    <form (ngSubmit)="save()" #taskForm="ngForm">
+      <div class="form-row">
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Title</mat-label>
+          <input matInput [(ngModel)]="task.title" name="title" required>
+          <mat-error *ngIf="taskForm.form.controls['title']?.invalid && taskForm.form.controls['title']?.touched">
+            Title is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-row">
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Description</mat-label>
+          <textarea matInput [(ngModel)]="task.description" name="description" required></textarea>
+          <mat-error *ngIf="taskForm.form.controls['description']?.invalid && taskForm.form.controls['description']?.touched">
+            Description is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-row">
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Category</mat-label>
+          <mat-select [(ngModel)]="selectedCategory" name="category" (selectionChange)="onCategoryChange($event.value)" required>
+            <mat-option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="taskForm.form.controls['category']?.invalid && taskForm.form.controls['category']?.touched">
+            Category is required
+          </mat-error>
+          <mat-label>
+            Current: {{task.category}}
+          </mat-label>
+        </mat-form-field>
+      </div>
+      <div class="form-row" *ngIf="getSubcategories().length > 0">
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Subcategory</mat-label>
+          <mat-select [(ngModel)]="selectedSubcategory" name="subcategory">
+            <mat-option *ngFor="let subcategory of getSubcategories()" [value]="subcategory">{{ subcategory }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="form-row">
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Priority</mat-label>
+          <mat-select [(ngModel)]="task.priority" name="priority" required>
+            <mat-option *ngFor="let priority of priorities" [value]="priority">{{ priority }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="taskForm.form.controls['priority']?.invalid && taskForm.form.controls['priority']?.touched">
+            Priority is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-row">
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Due Date</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="task.dueDate" name="dueDate" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="taskForm.form.controls['dueDate']?.invalid && taskForm.form.controls['dueDate']?.touched">
+            Due Date is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-row">
+        <button mat-raised-button color="primary" type="submit" class="form-field" [disabled]="taskForm.form.invalid">Save</button>
+      </div>
+    </form>
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button routerLink="/tasks">Cancel</button>
+  </mat-card-actions>
+</mat-card>

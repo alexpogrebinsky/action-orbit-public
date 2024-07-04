@@ -1,0 +1,13 @@
+.profile-avatar {
+  width: 340px;
+  height: 340px;
+  border-radius: 10%;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.profile-container{
+    text-align: left;
+}

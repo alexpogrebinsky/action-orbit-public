@@ -1,0 +1,11 @@
+<app-header [sidenav]="sidenav"></app-header>
+
+<mat-sidenav-container class="sidenav-container" autosize>
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" class="left-sidenav">
+    <app-profile-dropdown-widget></app-profile-dropdown-widget>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<app-footer></app-footer>

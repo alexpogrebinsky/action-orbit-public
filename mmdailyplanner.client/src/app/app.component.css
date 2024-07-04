@@ -1,0 +1,45 @@
+:host {
+    max-width: 1280px;
+/*    //padding: 2rem;
+*/    text-align: center;
+}
+
+tr:nth-child(even) {
+    background: #F2F2F2;
+}
+
+tr:nth-child(odd) {
+    background: #FFF;
+}
+
+th, td {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+table {
+    margin: 0 auto;
+}
+.sidenav-container {
+  width: auto;
+  background:none;
+  height: 80vh;
+}
+
+.left-sidenav{
+    margin-right: 10px;
+    border-right: 1px solid lightgray;
+/*   // width: 200px;
+*/}
+
+
+
+
+/*md-sidenav,
+md-sidenav.md-locked-open,
+md-sidenav.md-closed.md-locked-open-add-active {
+  min-width: 200px !important;
+  width: 85vw !important;
+  max-width: 400px !important;
+} 
+*/

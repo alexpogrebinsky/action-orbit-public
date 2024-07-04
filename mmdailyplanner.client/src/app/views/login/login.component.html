@@ -1,0 +1,32 @@
+<div fxLayout="column" fxLayoutAlign="center center" class="login-container">
+  <mat-card>
+    <img src="../../../assets/logos/logo.png" style="height:50px;width:50px; margin: 0 auto;" />
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form (ngSubmit)="login()" autocomplete="off">
+        <div fxLayout="column" fxLayoutGap="20px">
+          <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput [(ngModel)]="username" name="username" required autocomplete="username">
+            <mat-error *ngIf="!username">
+              Username is required
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" [(ngModel)]="password" name="password" required autocomplete="current-password">
+            <mat-error *ngIf="!password">
+              Password is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div *ngIf="loginError" class="error-message">{{ loginError }}</div>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" type="submit">Login</button>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

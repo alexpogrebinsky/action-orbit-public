@@ -1,0 +1,24 @@
+.header-container {
+  background-color: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #EBFDFF;
+}
+
+.header-menu {
+  display: inline-block;
+  width: auto;
+}
+
+
+.img-header-logo {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.img-container-logo {
+  display: flex;
+  align-items: center;
+}

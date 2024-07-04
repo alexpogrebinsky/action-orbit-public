@@ -1,0 +1,80 @@
+<div fxLayout="column" fxLayoutAlign="center center" class="register-container">
+  <mat-card>
+    <img src="../../../assets/logos/logo.png" style="height:50px;width:50px; margin: 0 auto;" />
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off">
+        <div fxLayout="column" fxLayoutGap="20px">
+          <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="username" required autocomplete="new-username">
+            <mat-error *ngIf="registerForm.get('username')?.hasError('required')">
+              Username is required
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="firstName" required autocomplete="off">
+            <mat-error *ngIf="registerForm.get('firstName')?.hasError('required')">
+              First Name is required
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="lastName" required autocomplete="off">
+            <mat-error *ngIf="registerForm.get('lastName')?.hasError('required')">
+              Last Name is required
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Phone Number</mat-label>
+            <input matInput formControlName="phoneNumber" required autocomplete="off">
+            <mat-error *ngIf="registerForm.get('phoneNumber')?.hasError('required')">
+              Phone Number is required
+            </mat-error>
+            <mat-error *ngIf="registerForm.get('phoneNumber')?.hasError('pattern')">
+              Phone Number must be 10 digits
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" required autocomplete="new-email">
+            <mat-error *ngIf="registerForm.get('email')?.hasError('required')">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="registerForm.get('email')?.hasError('email')">
+              Please enter a valid email
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password" required autocomplete="new-password">
+            <mat-error *ngIf="registerForm.get('password')?.hasError('required')">
+              Password is required
+            </mat-error>
+            <mat-error *ngIf="registerForm.get('password')?.hasError('minlength')">
+              Password must be at least 6 characters
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <input type="text" matInput placeholder="Profile Image" [value]="fileName" readonly>
+            <input type="file" hidden (change)="onFileSelected($event)" #fileInput>
+            <button mat-button type="button" (click)="fileInput.click()">Choose File</button>
+          </mat-form-field>
+          <mat-checkbox formControlName="terms" required>
+            I agree to the <a href="/terms-of-service" target="_blank">Terms of Service.</a>
+          </mat-checkbox>
+          <mat-error *ngIf="registerForm.get('terms')?.hasError('required')">
+            You must agree to the terms of service
+          </mat-error>
+        </div>
+        <div *ngIf="registrationError" class="error-message">{{ registrationError }}</div>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" type="submit">Register</button>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

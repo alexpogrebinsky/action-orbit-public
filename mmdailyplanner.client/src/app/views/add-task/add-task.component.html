@@ -1,0 +1,56 @@
+<!-- Add Task Template -->
+<mat-card>
+  <mat-card-title>Add Task</mat-card-title>
+  <form [formGroup]="taskForm" (ngSubmit)="addTask()">
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" type="text">
+      <mat-error *ngIf="taskForm.get('title')!.invalid && taskForm.get('title')!.touched">
+        <span *ngIf="taskForm.get('title')!.errors!['required']">Title is required.</span>
+        <span *ngIf="taskForm.get('title')!.errors!['maxlength']">Title cannot exceed 100 characters.</span>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="category" (selectionChange)="onCategoryChange($event.value)">
+        <mat-option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="taskForm.get('category')!.invalid && taskForm.get('category')!.touched">
+        Category is required.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="subcategories.length > 0" appearance="fill">
+      <mat-label>Subcategory</mat-label>
+      <mat-select formControlName="subcategory">
+        <mat-option *ngFor="let subcategory of subcategories" [value]="subcategory">{{ subcategory }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+      <mat-error *ngIf="taskForm.get('description')!.invalid && taskForm.get('description')!.touched">
+        <span *ngIf="taskForm.get('description')!.errors!['required']">Description is required.</span>
+        <span *ngIf="taskForm.get('description')!.errors!['maxlength']">Description cannot exceed 500 characters.</span>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Priority</mat-label>
+      <mat-select formControlName="priority">
+        <mat-option *ngFor="let level of priorities" [value]="level">{{ level }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Due Date</mat-label>
+      <input matInput formControlName="dueDate" [matDatepicker]="picker" type="text">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Add Task</button>
+  </form>
+</mat-card>

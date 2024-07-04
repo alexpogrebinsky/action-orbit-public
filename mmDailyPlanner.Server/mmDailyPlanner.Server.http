@@ -1,0 +1,6 @@
+@mmDailyPlanner.Server_HostAddress = http://localhost:5154
+
+GET {{mmDailyPlanner.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

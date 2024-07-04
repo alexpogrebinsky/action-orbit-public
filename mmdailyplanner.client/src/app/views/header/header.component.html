@@ -1,0 +1,10 @@
+<div class="header-container">
+  <div class="header-menu">
+    <button mat-button (click)="toggleSidenav()"><mat-icon>menu</mat-icon></button>
+    <a *ngIf="!(isAuthenticated | async)" mat-button routerLink="/login"><mat-icon>login</mat-icon>Login</a>
+    <a *ngIf="!(isAuthenticated | async)" mat-button routerLink="/register"><mat-icon>how_to_reg</mat-icon>Register</a>
+  </div>
+  <div class="img-container-logo">
+    <img src="../../../assets/logos/logo.png" alt="logo" class="img-header-logo">
+  </div>
+</div>
